@@ -81,3 +81,19 @@
     "vite": "^5.4.1"
   }
 }
+import json
+
+def check_json(json_string):
+    try:
+        data = json.loads(json_string)
+        print("✅ Valid JSON!")
+        return data
+    except json.JSONDecodeError as e:
+        print(f"❌ Invalid JSON: {e}")
+        return None
+
+# Example usage
+json_input = '{"name": "Alice", "age": 30}'  # Valid JSON
+# json_input = '{"name": "Alice", "age": 30,'  # Invalid JSON (uncomment to test)
+
+result = check_json(json_input)
